@@ -1,0 +1,27 @@
+{% load static %}
+{% load staticfiles %}
+{% load render_bundle from webpack_loader %}
+{% render_bundle 'main' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#    <script src="https://unpkg.com/vue/dist/vue.js"></script>#}
+</head>
+<body>
+<div id="app1">
+    <input type="text" v-on:input="changeTitle">
+    <p>[[ title ]]</p>
+</div>
+<div id="app2">
+    <input type="text" v-on:input="changeTitle">
+    <p>[[ title ]]</p>
+</div>
+    <div id="app"></div>
+    {% render_bundle 'main' 'js' %}
+</body>
+{#<script src="{% static 'myapp/js/vue_object1.js' %}"></script>#}
+{#<script src="{% static 'myapp/js/vue_object2.js' %}"></script>#}
+</html>
